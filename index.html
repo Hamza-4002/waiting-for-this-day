@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Countdown ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#0f0f1a,#1b1b2f);
+  color:white;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.container{
+  background:rgba(255,255,255,0.1);
+  padding:35px 30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  width:90%;
+  max-width:400px;
+}
+
+h1{
+  color:#ff8fa3;
+  margin-bottom:20px;
+}
+
+.timer{
+  font-size:22px;
+  letter-spacing:1px;
+}
+
+.surprise{
+  display:none;
+  margin-top:20px;
+  font-size:18px;
+  color:#ffd6e0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Countdown to Your Birthday 🎂
+    <i>Rahima</i>
+  </h1>
+  <div id="countdown" class="timer">Loading...</div>
+  <div id="surprise" class="surprise">
+    🎉 Happy Birthday ❤️ 🎉<br>
+    You are my favorite person.
+  </div>
+</div>
+
+<script>
+const birthdayMonth = 1; // February (0-based)
+const birthdayDay = 16;
+
+function countdown(){
+  const now = new Date();
+  let year = now.getFullYear();
+  let birthday = new Date(year, birthdayMonth, birthdayDay, 0, 0, 0);
+
+  if(birthday < now){
+    birthday = new Date(year + 1, birthdayMonth, birthdayDay, 0, 0, 0);
+  }
+
+  const diff = birthday - now;
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    days + " Days " + hours + " Hours " +
+    minutes + " Minutes " + seconds + " Seconds";
+
+  if(diff <= 0){
+    document.getElementById("surprise").style.display = "block";
+  }
+}
+
+countdown();
+setInterval(countdown,1000);
+</script>
+
+</body>
+</html>
