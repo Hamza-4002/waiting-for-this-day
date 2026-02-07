@@ -45,6 +45,43 @@ h1{
   #rahi{
     color:"voilet"
   }
+ /* Emoji flower rain */
+.emoji-flowers{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+
+.emoji-flowers span{
+  position:absolute;
+  top:-50px;
+  font-size:28px;
+  animation:emojiFall linear infinite;
+}
+
+/* Falling animation */
+@keyframes emojiFall{
+  0%{
+    transform:translateY(-60px) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* Different positions & speeds */
+.emoji-flowers span:nth-child(1){ left:5%;  animation-duration:7s; }
+.emoji-flowers span:nth-child(2){ left:15%; animation-duration:10s; }
+.emoji-flowers span:nth-child(3){ left:30%; animation-duration:8s; }
+.emoji-flowers span:nth-child(4){ left:45%; animation-duration:11s; }
+.emoji-flowers span:nth-child(5){ left:60%; animation-duration:9s; }
+.emoji-flowers span:nth-child(6){ left:75%; animation-duration:12s; }
+.emoji-flowers span:nth-child(7){ left:88%; animation-duration:8s; }
+.emoji-flowers span:nth-child(8){ left:95%; animation-duration:10s; }
 </style>
 </head>
 
@@ -59,8 +96,20 @@ h1{
   <div id="countdown" class="timer">Loading...</div>
   <div id="surprise" class="surprise">
     🎉 Happy Birthday ❤️ 🎉<br>
-    You are my favorite person.
+    <p style="font-size: 6px;">
+    On your special day, I just want to wish you peace in your heart, smiles that stay a lttle longer, and moments that feel warm and real. May this new year of your life bring growth, kindness and quiet happiness. Keep shining in your own beautiful way -- you truly deserve the best wishing you a day as lovely as your soul.</p>
   </div>
+</div>
+ <!-- Real Flower Rain -->
+<div class="emoji-flowers">
+  <span>🌹</span>
+  <span>🌺</span>
+  <span>🌸</span>
+  <span>🌷</span>
+  <span>🌹</span>
+  <span>🌺</span>
+  <span>🌸</span>
+  <span>🌷</span>
 </div>
 
 <script>
@@ -99,4 +148,5 @@ setInterval(countdown,1000);
 </body>
 
 </html>
+
 
